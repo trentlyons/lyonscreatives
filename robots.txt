@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://trentlyons.github.io/lyonscreatives/sitemap.xml
