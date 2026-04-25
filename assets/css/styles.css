@@ -1405,3 +1405,72 @@ select[multiple] option {
 .ajax-form.is-submitting input, .ajax-form.is-submitting textarea, .ajax-form.is-submitting select {
   pointer-events: none;
 }
+
+/* Clean service checkbox selector */
+.service-selector {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.service-selector legend {
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+
+.service-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.service-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid rgba(52, 52, 52, 0.14);
+  border-radius: 16px;
+  background: #fffdf9;
+  cursor: pointer;
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease;
+}
+
+.service-option:hover {
+  border-color: rgba(52, 52, 52, 0.28);
+  transform: translateY(-1px);
+}
+
+.service-option:has(input:focus-visible) {
+  border-color: rgba(255, 189, 89, 0.8);
+  box-shadow: 0 0 0 4px rgba(255, 189, 89, 0.18);
+}
+
+.service-option:has(input:checked) {
+  border-color: rgba(255, 189, 89, 0.9);
+  background: rgba(255, 189, 89, 0.12);
+}
+
+.service-option input {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  padding: 0;
+  margin: 0;
+  accent-color: var(--accent);
+  transform: none;
+}
+
+.service-option span {
+  color: var(--charcoal);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+@media (max-width: 620px) {
+  .service-options {
+    grid-template-columns: 1fr;
+  }
+}

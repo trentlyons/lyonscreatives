@@ -89,19 +89,40 @@
             <label for="phone">Phone number</label>
             <input id="phone" name="phone" type="tel" placeholder="Optional" autocomplete="tel">
           </div>
-          <div class="field field-full floating-field">
-            <label for="service">Service <span class="required-star" aria-hidden="true">*</span></label>
-            <select id="service" name="services[]" multiple required aria-describedby="service-help">
-              <option value="Content Creation">Content Creation</option>
-              <option value="eCommerce Growth">eCommerce Growth</option>
-              <option value="Email Marketing">Email Marketing</option>
-              <option value="Automation / Flows">Automation / Flows</option>
-              <option value="Campaign Management">Campaign Management</option>
-              <option value="Shopify Support">Shopify Support</option>
-              <option value="Not sure yet">Not sure yet</option>
-            </select>
-            <small id="service-help" class="field-help">Hold Ctrl on Windows or Cmd on Mac to select more than one.</small>
-          </div>
+          <fieldset class="field field-full service-selector" aria-describedby="service-help">
+            <legend>Service <span class="required-star" aria-hidden="true">*</span></legend>
+            <div class="service-options">
+              <label class="service-option">
+                <input type="checkbox" name="services[]" value="Content Creation" required>
+                <span>Content Creation</span>
+              </label>
+              <label class="service-option">
+                <input type="checkbox" name="services[]" value="eCommerce Growth">
+                <span>eCommerce Growth</span>
+              </label>
+              <label class="service-option">
+                <input type="checkbox" name="services[]" value="Email Marketing">
+                <span>Email Marketing</span>
+              </label>
+              <label class="service-option">
+                <input type="checkbox" name="services[]" value="Automation / Flows">
+                <span>Automation / Flows</span>
+              </label>
+              <label class="service-option">
+                <input type="checkbox" name="services[]" value="Campaign Management">
+                <span>Campaign Management</span>
+              </label>
+              <label class="service-option">
+                <input type="checkbox" name="services[]" value="Shopify Support">
+                <span>Shopify Support</span>
+              </label>
+              <label class="service-option">
+                <input type="checkbox" name="services[]" value="Not sure yet">
+                <span>Not sure yet</span>
+              </label>
+            </div>
+            <small id="service-help" class="field-help">Choose one or more services that feel relevant.</small>
+          </fieldset>
           <div class="field field-full floating-field">
             <label for="company">Company name</label>
             <input id="company" name="company" type="text" placeholder="Brand or business name" autocomplete="organization">
