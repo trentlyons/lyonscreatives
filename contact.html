@@ -89,40 +89,15 @@
             <label for="phone">Phone number</label>
             <input id="phone" name="phone" type="tel" placeholder="Optional" autocomplete="tel">
           </div>
-          <fieldset class="field field-full service-selector" aria-describedby="service-help">
-            <legend>Service <span class="required-star" aria-hidden="true">*</span></legend>
-            <div class="service-options">
-              <label class="service-option">
-                <input type="checkbox" name="services[]" value="Content Creation" required>
-                <span>Content Creation</span>
-              </label>
-              <label class="service-option">
-                <input type="checkbox" name="services[]" value="eCommerce Growth">
-                <span>eCommerce Growth</span>
-              </label>
-              <label class="service-option">
-                <input type="checkbox" name="services[]" value="Email Marketing">
-                <span>Email Marketing</span>
-              </label>
-              <label class="service-option">
-                <input type="checkbox" name="services[]" value="Automation / Flows">
-                <span>Automation / Flows</span>
-              </label>
-              <label class="service-option">
-                <input type="checkbox" name="services[]" value="Campaign Management">
-                <span>Campaign Management</span>
-              </label>
-              <label class="service-option">
-                <input type="checkbox" name="services[]" value="Shopify Support">
-                <span>Shopify Support</span>
-              </label>
-              <label class="service-option">
-                <input type="checkbox" name="services[]" value="Not sure yet">
-                <span>Not sure yet</span>
-              </label>
-            </div>
-            <small id="service-help" class="field-help">Choose one or more services that feel relevant.</small>
-          </fieldset>
+          <div class="field field-full floating-field">
+            <label for="contact-service">Service <span class="required-star" aria-hidden="true">*</span></label>
+            <select id="contact-service" name="service" required>
+              <option value="">Select the closest fit</option>
+              <option value="Content Creation">Content Creation</option>
+              <option value="eCommerce Growth">eCommerce Growth</option>
+              <option value="Both / not sure yet">Both / not sure yet</option>
+            </select>
+          </div>
           <div class="field field-full floating-field">
             <label for="company">Company name</label>
             <input id="company" name="company" type="text" placeholder="Brand or business name" autocomplete="organization">
