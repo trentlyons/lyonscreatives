@@ -252,27 +252,25 @@
           <span class="eyebrow">Contact</span>
           <h2 class="title-lg">Tell me what you are building.</h2>
           <p class="lead">This is the homepage contact section. It is ready for a static-site form backend such as Formspree once you add your form ID.</p>
-          <form class="form-card" style="padding:0; box-shadow:none; border:none; background:transparent;" action="https://formspree.io/f/xaqabnon" method="POST">
-            <div class="form-grid">
-              <div class="field">
-                <label for="home-name">Name</label>
-                <input id="home-name" name="name" type="text" placeholder="Your name" required>
-              </div>
-              <div class="field">
-                <label for="home-email">Email</label>
-                <input id="home-email" name="email" type="email" placeholder="you@example.com" required>
-              </div>
-              <div class="field-full">
-                <label for="home-message">Project details</label>
-                <textarea id="home-message" name="message" placeholder="Tell me a little about the brand, what you need, and your timeline." required></textarea>
-              </div>
-            </div>
-            <p class="form-note">This form is connected through Formspree and will send your enquiry straight through.</p>
-            <div class="btn-row">
-              <button class="btn" type="submit">Send enquiry</button>
-              <a class="btn ghost-dark" href="contact.html">Open full contact page</a>
-            </div>
-          </form>
+          <form action="https://formspree.io/f/xaqabnon" method="POST" class="contact-form">
+  
+  <label>Email <span style="color:red">*</span></label>
+  <input type="email" name="email" required>
+
+  <label>Service <span style="color:red">*</span></label>
+  <select name="service" required>
+    <option value="">Select a service</option>
+    <option>Content Creation</option>
+    <option>eCommerce Growth</option>
+    <option>Both</option>
+  </select>
+
+  <label>Further details</label>
+  <textarea name="message" placeholder="Tell me a bit about what you need..."></textarea>
+
+  <button type="submit">Send enquiry</button>
+
+</form>
         </div>
         <div class="info-stack">
           <div class="info-card">
