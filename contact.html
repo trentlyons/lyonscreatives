@@ -69,33 +69,52 @@
   <div class="container contact-shell">
     <div class="form-card">
       <h2 class="title-md">Project enquiry</h2>
-      <p class="muted">Use the form below to send a project enquiry directly through Formspree.</p>
-      <form action="https://formspree.io/f/mgordjaa" method="POST">
+      <p class="muted">Share the useful details here. This version gives enough context to understand the service fit, without making the enquiry process heavy.</p>
+      <form class="contact-form ajax-form" action="https://formspree.io/f/mgordjaa" method="POST" data-ajax-form data-success-message="Thanks — your project enquiry has been sent. I’ll review it and come back to you soon.">
+        <input type="hidden" name="_subject" value="New full contact enquiry from Lyons Creative">
         <div class="form-grid">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required>
+          <div class="field floating-field">
+            <label for="first-name">First name</label>
+            <input id="first-name" name="first_name" type="text" placeholder="First name" autocomplete="given-name">
           </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          <div class="field floating-field">
+            <label for="last-name">Last name</label>
+            <input id="last-name" name="last_name" type="text" placeholder="Last name" autocomplete="family-name">
           </div>
-          <div class="field">
-            <label for="brand">Brand / business</label>
-            <input id="brand" name="brand" type="text" placeholder="Brand name">
+          <div class="field floating-field">
+            <label for="email">Email <span class="required-star" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
           </div>
-          <div class="field">
-            <label for="service">Service</label>
-            <input id="service" name="service" type="text" placeholder="Content Creation, eCommerce Growth, or both">
+          <div class="field floating-field">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" placeholder="Optional" autocomplete="tel">
           </div>
-          <div class="field-full">
-            <label for="message">Project details</label>
-            <textarea id="message" name="message" placeholder="Share a little context, goals, and rough timeline." required></textarea>
+          <div class="field field-full floating-field">
+            <label for="service">Service <span class="required-star" aria-hidden="true">*</span></label>
+            <select id="service" name="services[]" multiple required aria-describedby="service-help">
+              <option value="Content Creation">Content Creation</option>
+              <option value="eCommerce Growth">eCommerce Growth</option>
+              <option value="Email Marketing">Email Marketing</option>
+              <option value="Automation / Flows">Automation / Flows</option>
+              <option value="Campaign Management">Campaign Management</option>
+              <option value="Shopify Support">Shopify Support</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+            <small id="service-help" class="field-help">Hold Ctrl on Windows or Cmd on Mac to select more than one.</small>
+          </div>
+          <div class="field field-full floating-field">
+            <label for="company">Company name</label>
+            <input id="company" name="company" type="text" placeholder="Brand or business name" autocomplete="organization">
+          </div>
+          <div class="field-full floating-field">
+            <label for="further-details">Further details</label>
+            <textarea id="further-details" name="further_details" placeholder="Tell me about the brand, what you need, your rough timeline, and anything you already know you want help with."></textarea>
           </div>
         </div>
-        <p class="form-note">This form is connected through Formspree and ready to receive enquiries.</p>
+        <p class="form-note">The more useful context you include, the easier it is to suggest the right next step.</p>
+        <div class="form-status" role="status" aria-live="polite"></div>
         <div class="btn-row">
-          <button class="btn" type="submit">Send enquiry</button>
+          <button class="btn" type="submit">Send project enquiry</button>
         </div>
       </form>
     </div>
@@ -126,10 +145,12 @@
       <div>
         <h2 class="footer-title">Stay in the loop</h2>
         <p class="muted" style="color: rgba(255,255,255,.72); max-width: 38ch;">A light-touch newsletter for updates, ideas, and future Lyons Creative news.</p>
-        <form class="newsletter" action="https://formspree.io/f/mpqkbgpd" method="POST">
+        <form class="newsletter ajax-form" action="https://formspree.io/f/mpqkbgpd" method="POST" data-ajax-form data-success-message="Thanks — you’re on the list.">
+          <input type="hidden" name="_subject" value="New newsletter signup from Lyons Creative">
           <input type="email" name="email" placeholder="Your email address" aria-label="Email address for newsletter" required>
           <button type="submit" aria-label="Submit newsletter form">↗</button>
         </form>
+        <div class="form-status newsletter-status" role="status" aria-live="polite"></div>
         <div class="social-row">
           <a class="social-link" href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
           <a class="social-link" href="https://www.tiktok.com" target="_blank" rel="noreferrer">TikTok</a>

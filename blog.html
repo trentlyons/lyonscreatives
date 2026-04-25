@@ -109,10 +109,12 @@
       <div>
         <h2 class="footer-title">Stay in the loop</h2>
         <p class="muted" style="color: rgba(255,255,255,.72); max-width: 38ch;">A light-touch newsletter for updates, ideas, and future Lyons Creative news.</p>
-        <form class="newsletter" action="https://formspree.io/f/mpqkbgpd" method="POST">
+        <form class="newsletter ajax-form" action="https://formspree.io/f/mpqkbgpd" method="POST" data-ajax-form data-success-message="Thanks — you’re on the list.">
+          <input type="hidden" name="_subject" value="New newsletter signup from Lyons Creative">
           <input type="email" name="email" placeholder="Your email address" aria-label="Email address for newsletter" required>
           <button type="submit" aria-label="Submit newsletter form">↗</button>
         </form>
+        <div class="form-status newsletter-status" role="status" aria-live="polite"></div>
         <div class="social-row">
           <a class="social-link" href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
           <a class="social-link" href="https://www.tiktok.com" target="_blank" rel="noreferrer">TikTok</a>

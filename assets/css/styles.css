@@ -1287,3 +1287,121 @@ textarea {
     justify-content: flex-start;
   }
 }
+
+
+/* Enhanced contact forms */
+.required-star {
+  color: #d83b2d;
+  font-weight: 800;
+  margin-left: 2px;
+}
+
+.contact-form .form-grid { gap: 18px; }
+.floating-field { position: relative; }
+
+.floating-field label {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 8px;
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.floating-field:focus-within label {
+  color: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+select {
+  width: 100%;
+  border: 1px solid rgba(52, 52, 52, 0.14);
+  background: #fffdf9;
+  border-radius: 16px;
+  padding: 14px 16px;
+  color: var(--charcoal);
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: rgba(255, 189, 89, 0.8);
+  box-shadow: 0 0 0 4px rgba(255, 189, 89, 0.18);
+}
+
+input:hover, textarea:hover, select:hover { border-color: rgba(52, 52, 52, 0.28); }
+input:focus, textarea:focus, select:focus { transform: translateY(-1px); }
+
+select[multiple] {
+  min-height: 168px;
+  padding: 10px;
+}
+
+select[multiple] option {
+  padding: 10px 12px;
+  margin: 4px 0;
+  border-radius: 10px;
+}
+
+.field-help {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.form-status {
+  min-height: 0;
+  margin: 12px 0 0;
+  padding: 0;
+  border-radius: 16px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 240ms ease, transform 240ms ease, padding 240ms ease, background-color 240ms ease, color 240ms ease;
+}
+
+.form-status.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  padding: 14px 16px;
+}
+
+.form-status.is-success {
+  background: rgba(255, 189, 89, 0.22);
+  color: var(--charcoal);
+  border: 1px solid rgba(255, 189, 89, 0.45);
+}
+
+.form-status.is-error {
+  background: rgba(216, 59, 45, 0.1);
+  color: #8d261f;
+  border: 1px solid rgba(216, 59, 45, 0.22);
+}
+
+.newsletter-status {
+  max-width: 360px;
+  font-size: 0.95rem;
+}
+
+.newsletter button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+}
+
+.newsletter button:hover, .newsletter button:focus-visible {
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 12px 28px rgba(255, 189, 89, 0.28);
+  background: #ffd183;
+}
+
+.ajax-form.is-submitting .btn, .ajax-form.is-submitting button[type="submit"] {
+  opacity: 0.72;
+  cursor: progress;
+}
+
+.ajax-form.is-submitting input, .ajax-form.is-submitting textarea, .ajax-form.is-submitting select {
+  pointer-events: none;
+}

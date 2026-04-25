@@ -251,26 +251,35 @@
         <div>
           <span class="eyebrow">Contact</span>
           <h2 class="title-lg">Tell me what you are building.</h2>
-          <p class="lead">This is the homepage contact section. It is ready for a static-site form backend such as Formspree once you add your form ID.</p>
-          <form action="https://formspree.io/f/xaqabnon" method="POST" class="contact-form">
-  
-  <label>Email <span style="color:red">*</span></label>
-  <input type="email" name="email" required>
-
-  <label>Service <span style="color:red">*</span></label>
-  <select name="service" required>
-    <option value="">Select a service</option>
-    <option>Content Creation</option>
-    <option>eCommerce Growth</option>
-    <option>Both</option>
-  </select>
-
-  <label>Further details</label>
-  <textarea name="message" placeholder="Tell me a bit about what you need..."></textarea>
-
-  <button type="submit">Send enquiry</button>
-
-</form>
+          <p class="lead">A short route for early-stage enquiries. Send the essentials and we can shape the next step from there.</p>
+          <form class="form-card contact-form ajax-form" style="padding:0; box-shadow:none; border:none; background:transparent;" action="https://formspree.io/f/xaqabnon" method="POST" data-ajax-form data-success-message="Thanks — your enquiry has been sent. I’ll come back to you soon.">
+            <input type="hidden" name="_subject" value="New homepage enquiry from Lyons Creative">
+            <div class="form-grid">
+              <div class="field field-full floating-field">
+                <label for="home-email">Email <span class="required-star" aria-hidden="true">*</span></label>
+                <input id="home-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+              </div>
+              <div class="field field-full floating-field">
+                <label for="home-service">Service</label>
+                <select id="home-service" name="service">
+                  <option value="">Select the closest fit</option>
+                  <option value="Content Creation">Content Creation</option>
+                  <option value="eCommerce Growth">eCommerce Growth</option>
+                  <option value="Both / not sure yet">Both / not sure yet</option>
+                </select>
+              </div>
+              <div class="field-full floating-field">
+                <label for="home-details">Further details</label>
+                <textarea id="home-details" name="further_details" placeholder="A few lines about what you’re building, what you need, or what feels stuck."></textarea>
+              </div>
+            </div>
+            <p class="form-note">No need for a perfect brief. A rough outline is enough to start the conversation.</p>
+            <div class="form-status" role="status" aria-live="polite"></div>
+            <div class="btn-row">
+              <button class="btn" type="submit">Send enquiry</button>
+              <a class="btn ghost-dark" href="contact.html">Open full contact page</a>
+            </div>
+          </form>
         </div>
         <div class="info-stack">
           <div class="info-card">
@@ -299,10 +308,12 @@
       <div>
         <h2 class="footer-title">Stay in the loop</h2>
         <p class="muted" style="color: rgba(255,255,255,.72); max-width: 38ch;">A light-touch newsletter for updates, ideas, and future Lyons Creative news.</p>
-        <form class="newsletter" action="https://formspree.io/f/mpqkbgpd" method="POST">
+        <form class="newsletter ajax-form" action="https://formspree.io/f/mpqkbgpd" method="POST" data-ajax-form data-success-message="Thanks — you’re on the list.">
+          <input type="hidden" name="_subject" value="New newsletter signup from Lyons Creative">
           <input type="email" name="email" placeholder="Your email address" aria-label="Email address for newsletter" required>
           <button type="submit" aria-label="Submit newsletter form">↗</button>
         </form>
+        <div class="form-status newsletter-status" role="status" aria-live="polite"></div>
         <div class="social-row">
           <a class="social-link" href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
           <a class="social-link" href="https://www.tiktok.com" target="_blank" rel="noreferrer">TikTok</a>

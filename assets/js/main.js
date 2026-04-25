@@ -119,6 +119,57 @@
     window.addEventListener('resize', updateParallax);
   }
 
+  document.querySelectorAll('[data-ajax-form]').forEach((form) => {
+    const status = form.querySelector('.form-status') || form.parentElement?.querySelector('.form-status');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    const setStatus = (message, type) => {
+      if (!status) return;
+      status.textContent = message;
+      status.classList.remove('is-success', 'is-error');
+      status.classList.add('is-visible', type === 'success' ? 'is-success' : 'is-error');
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const originalButtonText = submitButton ? submitButton.textContent : '';
+      form.classList.add('is-submitting');
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending…';
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (response.ok) {
+          setStatus(form.dataset.successMessage || 'Thanks — your message has been sent.', 'success');
+          form.reset();
+        } else {
+          setStatus('Something went wrong. Please try again, or email directly instead.', 'error');
+        }
+      } catch (error) {
+        setStatus('Unable to send right now. Please check your connection and try again.', 'error');
+      } finally {
+        form.classList.remove('is-submitting');
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      }
+    });
+  });
+
   document.querySelectorAll('[data-year]').forEach((el) => {
     el.textContent = new Date().getFullYear();
   });
