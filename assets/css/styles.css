@@ -1166,3 +1166,124 @@ textarea {
     transform: none !important;
   }
 }
+
+
+/* Refinements: real tool logos, cleaner hero, smoother ticker, footer/contact fixes */
+.logo-row-images {
+  gap: 18px;
+}
+
+.logo-chip-image {
+  min-height: 58px;
+  padding: 12px 18px;
+  background: #fff;
+  border: 1px solid rgba(52, 52, 52, 0.1);
+  box-shadow: 0 12px 28px rgba(18, 18, 18, 0.06);
+}
+
+.logo-chip-image img {
+  display: block;
+  width: auto;
+  height: clamp(28px, 4vw, 42px);
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.hero.hero-parallax {
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 245, 220, 0.82), transparent 24%),
+    radial-gradient(circle at 78% 42%, rgba(255, 189, 89, 0.32), transparent 25%),
+    linear-gradient(180deg, #ffd89b 0%, #f2b474 32%, #d78c65 52%, #627f86 75%, #2f5358 100%);
+}
+
+.hero-palms {
+  display: none;
+}
+
+.hero-grain {
+  opacity: 0.28;
+}
+
+.hero-frame {
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.ticker {
+  gap: 0;
+  animation-duration: 24s;
+}
+
+.ticker span {
+  display: inline-block;
+  padding-right: 0;
+}
+
+.newsletter {
+  align-items: center;
+}
+
+.newsletter input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.newsletter button {
+  display: inline-grid;
+  place-items: center;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+
+.newsletter button:hover,
+.newsletter button:focus-visible {
+  transform: translateY(-1px) scale(1.05);
+  background: #ffd083;
+  box-shadow: 0 12px 24px rgba(255, 189, 89, 0.22);
+}
+
+.info-card .footer-list a {
+  color: var(--charcoal);
+  font-weight: 700;
+}
+
+.info-card .footer-list a:hover,
+.info-card .footer-list a:focus-visible {
+  color: var(--accent-strong);
+}
+
+.conversion-cta {
+  padding: 72px 0 18px;
+}
+
+.conversion-cta-card {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+  padding: clamp(26px, 4vw, 44px);
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 92% 18%, rgba(255, 189, 89, 0.32), transparent 28%),
+    linear-gradient(145deg, #ffffff, #f7f1e8);
+  border: 1px solid rgba(52, 52, 52, 0.08);
+  box-shadow: var(--shadow-card);
+}
+
+.conversion-cta-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+  .conversion-cta-card {
+    grid-template-columns: 1fr;
+  }
+  .conversion-cta-actions {
+    justify-content: flex-start;
+  }
+}

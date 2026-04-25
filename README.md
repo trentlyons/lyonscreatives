@@ -22,16 +22,13 @@ Static multi-page site for GitHub Pages.
 ## Forms on GitHub Pages
 GitHub Pages is static hosting, so the form needs an external form backend.
 
-This site currently uses a placeholder Formspree action:
-`https://formspree.io/f/YOUR_FORM_ID`
+Forms are connected to Formspree:
 
-To activate it:
-1. Create a form on Formspree.
-2. Copy your real form ID.
-3. Replace `YOUR_FORM_ID` in:
-   - `index.html`
-   - `contact.html`
-   - `footer newsletter form` on each page
+- Homepage contact form: `https://formspree.io/f/xaqabnon`
+- Full contact page form: `https://formspree.io/f/mgordjaa`
+- Newsletter form in the footer: `https://formspree.io/f/mpqkbgpd`
+
+The site uses plain HTML `POST` forms, which is the simplest option for GitHub Pages.
 
 ## Domain / sitemap note
 The sitemap currently uses:

@@ -119,15 +119,6 @@
     window.addEventListener('resize', updateParallax);
   }
 
-  document.querySelectorAll('form[data-formspree-placeholder]').forEach((form) => {
-    form.addEventListener('submit', (event) => {
-      if (form.dataset.ready !== 'true') {
-        event.preventDefault();
-        alert('Replace YOUR_FORM_ID in the form action with your Formspree form ID before going live.');
-      }
-    });
-  });
-
   document.querySelectorAll('[data-year]').forEach((el) => {
     el.textContent = new Date().getFullYear();
   });
