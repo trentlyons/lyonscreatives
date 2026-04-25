@@ -260,13 +260,24 @@
                 <input id="home-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
               </div>
               <div class="field field-full floating-field">
-                <label for="home-service">Service</label>
-                <select id="home-service" name="service">
-                  <option value="">Select the closest fit</option>
-                  <option value="Content Creation">Content Creation</option>
-                  <option value="eCommerce Growth">eCommerce Growth</option>
-                  <option value="Both / not sure yet">Both / not sure yet</option>
-                </select>
+                <label for="home-service">Service <span class="required-star" aria-hidden="true">*</span></label>
+                <div class="custom-select" data-custom-select>
+                  <select id="home-service" name="service" class="native-select-hidden" required tabindex="-1" aria-hidden="true">
+                    <option value="">Select the closest fit</option>
+                    <option value="Content Creation">Content Creation</option>
+                    <option value="eCommerce Growth">eCommerce Growth</option>
+                    <option value="Both / not sure yet">Both / not sure yet</option>
+                  </select>
+                  <button class="custom-select-trigger is-placeholder" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span>Select the closest fit</span>
+                    <span class="custom-select-arrow" aria-hidden="true"></span>
+                  </button>
+                  <div class="custom-select-menu" role="listbox" aria-label="Service options">
+                    <button type="button" role="option" data-value="Content Creation">Content Creation</button>
+                    <button type="button" role="option" data-value="eCommerce Growth">eCommerce Growth</button>
+                    <button type="button" role="option" data-value="Both / not sure yet">Both / not sure yet</button>
+                  </div>
+                </div>
               </div>
               <div class="field-full floating-field">
                 <label for="home-details">Further details</label>
