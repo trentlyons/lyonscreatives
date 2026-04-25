@@ -1531,3 +1531,15 @@ input:focus, textarea:focus, select:focus { transform: translateY(-1px); }
   background: rgba(255, 189, 89, 0.18);
   color: var(--charcoal);
 }
+
+/* CUSTOM SELECT */
+.custom-select{position:relative;width:100%;cursor:pointer}
+.custom-select__trigger{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-radius:40px;border:1px solid #e2d7c6;background:#f7f4ef;transition:.2s}
+.custom-select.open .custom-select__trigger{border-color:#ffbd59}
+.custom-select__placeholder{color:#9b9b9b}
+.arrow{width:10px;height:10px;border-right:2px solid #333;border-bottom:2px solid #333;transform:rotate(45deg);transition:.2s}
+.custom-select.open .arrow{transform:rotate(-135deg)}
+.custom-options{position:absolute;top:110%;left:0;right:0;background:#f7f4ef;border-radius:20px;border:1px solid #e2d7c6;display:none;z-index:10;overflow:hidden}
+.custom-select.open .custom-options{display:block}
+.custom-option{padding:16px 20px;transition:.15s}
+.custom-option:hover{background:#ffbd59;color:#000}
