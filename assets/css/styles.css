@@ -1420,3 +1420,114 @@ input:focus, textarea:focus, select:focus { transform: translateY(-1px); }
 .ajax-form.is-submitting input, .ajax-form.is-submitting textarea, .ajax-form.is-submitting select {
   pointer-events: none;
 }
+
+/* Custom contact service dropdown */
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.native-select-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  min-height: 54px;
+  border: 1px solid rgba(52, 52, 52, 0.14);
+  background: #fffdf9;
+  border-radius: 16px;
+  padding: 14px 16px;
+  color: var(--charcoal);
+  font: inherit;
+  font-weight: 400;
+  line-height: 1.2;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease, background 220ms ease;
+}
+
+.custom-select-trigger.is-placeholder {
+  color: var(--muted);
+}
+
+.custom-select-trigger:hover {
+  border-color: rgba(52, 52, 52, 0.28);
+}
+
+.custom-select.is-open .custom-select-trigger,
+.custom-select-trigger:focus {
+  outline: none;
+  border-color: rgba(255, 189, 89, 0.8);
+  box-shadow: 0 0 0 4px rgba(255, 189, 89, 0.18);
+  transform: translateY(-1px);
+}
+
+.custom-select-arrow {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--charcoal);
+  border-bottom: 2px solid var(--charcoal);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 180ms ease;
+  flex: 0 0 auto;
+}
+
+.custom-select.is-open .custom-select-arrow {
+  transform: rotate(225deg) translate(-2px, -1px);
+}
+
+.custom-select-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid rgba(52, 52, 52, 0.12);
+  border-radius: 16px;
+  background: #fffdf9;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+}
+
+.custom-select.is-open .custom-select-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.custom-select-menu button {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  padding: 12px 14px;
+  color: var(--charcoal);
+  font: inherit;
+  font-weight: 400;
+  text-align: left;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.custom-select-menu button:hover,
+.custom-select-menu button:focus,
+.custom-select-menu button.is-selected {
+  outline: none;
+  background: rgba(255, 189, 89, 0.18);
+  color: var(--charcoal);
+}

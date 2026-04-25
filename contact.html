@@ -91,12 +91,23 @@
           </div>
           <div class="field field-full floating-field">
             <label for="contact-service">Service <span class="required-star" aria-hidden="true">*</span></label>
-            <select id="contact-service" name="service" required>
-              <option value="">Select the closest fit</option>
-              <option value="Content Creation">Content Creation</option>
-              <option value="eCommerce Growth">eCommerce Growth</option>
-              <option value="Both / not sure yet">Both / not sure yet</option>
-            </select>
+            <div class="custom-select" data-custom-select>
+              <select id="contact-service" name="service" class="native-select-hidden" required tabindex="-1" aria-hidden="true">
+                <option value="">Select the closest fit</option>
+                <option value="Content Creation">Content Creation</option>
+                <option value="eCommerce Growth">eCommerce Growth</option>
+                <option value="Both / not sure yet">Both / not sure yet</option>
+              </select>
+              <button class="custom-select-trigger is-placeholder" type="button" aria-haspopup="listbox" aria-expanded="false">
+                <span>Select the closest fit</span>
+                <span class="custom-select-arrow" aria-hidden="true"></span>
+              </button>
+              <div class="custom-select-menu" role="listbox" aria-label="Service options">
+                <button type="button" role="option" data-value="Content Creation">Content Creation</button>
+                <button type="button" role="option" data-value="eCommerce Growth">eCommerce Growth</button>
+                <button type="button" role="option" data-value="Both / not sure yet">Both / not sure yet</button>
+              </div>
+            </div>
           </div>
           <div class="field field-full floating-field">
             <label for="company">Company name</label>

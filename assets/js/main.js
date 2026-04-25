@@ -119,6 +119,83 @@
     window.addEventListener('resize', updateParallax);
   }
 
+  document.querySelectorAll('[data-custom-select]').forEach((customSelect) => {
+    const nativeSelect = customSelect.querySelector('select');
+    const trigger = customSelect.querySelector('.custom-select-trigger');
+    const triggerText = trigger?.querySelector('span');
+    const options = customSelect.querySelectorAll('.custom-select-menu [data-value]');
+
+    if (!nativeSelect || !trigger || !triggerText) return;
+
+    const close = () => {
+      customSelect.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+    };
+
+    const open = () => {
+      customSelect.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+    };
+
+    const setValue = (value, text) => {
+      nativeSelect.value = value;
+      triggerText.textContent = text || nativeSelect.options[0]?.textContent || 'Select an option';
+      trigger.classList.toggle('is-placeholder', !value);
+      options.forEach((option) => {
+        option.classList.toggle('is-selected', option.dataset.value === value);
+        option.setAttribute('aria-selected', String(option.dataset.value === value));
+      });
+      nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+    };
+
+    trigger.addEventListener('click', () => {
+      customSelect.classList.contains('is-open') ? close() : open();
+    });
+
+    trigger.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        open();
+        options[0]?.focus();
+      }
+    });
+
+    options.forEach((option) => {
+      option.addEventListener('click', () => {
+        setValue(option.dataset.value || '', option.textContent.trim());
+        close();
+        trigger.focus();
+      });
+
+      option.addEventListener('keydown', (event) => {
+        const list = Array.from(options);
+        const index = list.indexOf(option);
+        if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          list[index + 1]?.focus();
+        }
+        if (event.key === 'ArrowUp') {
+          event.preventDefault();
+          (list[index - 1] || trigger).focus();
+        }
+        if (event.key === 'Escape') {
+          close();
+          trigger.focus();
+        }
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!customSelect.contains(event.target)) close();
+    });
+
+    nativeSelect.form?.addEventListener('reset', () => {
+      window.setTimeout(() => setValue(nativeSelect.value, nativeSelect.options[nativeSelect.selectedIndex]?.textContent), 0);
+    });
+
+    setValue(nativeSelect.value, nativeSelect.options[nativeSelect.selectedIndex]?.textContent);
+  });
+
   document.querySelectorAll('[data-ajax-form]').forEach((form) => {
     const status = form.querySelector('.form-status') || form.parentElement?.querySelector('.form-status');
     const submitButton = form.querySelector('button[type="submit"]');
