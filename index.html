@@ -259,15 +259,18 @@
                 <label for="home-email">Email <span class="required-star" aria-hidden="true">*</span></label>
                 <input id="home-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
               </div>
-              <div class="field field-full floating-field">
-                <label for="home-service">Service</label>
-                <select id="home-service" name="service">
-                  <option value="">Select the closest fit</option>
-                  <option value="Content Creation">Content Creation</option>
-                  <option value="eCommerce Growth">eCommerce Growth</option>
-                  <option value="Both / not sure yet">Both / not sure yet</option>
-                </select>
-              </div>
+              <div class="custom-select" id="serviceSelect">
+                <div class="custom-select__trigger">
+                  <span class="custom-select__placeholder">Select the closest fit</span>
+                    <div class="arrow"></div>
+                </div>
+                    <div class="custom-options">
+                       <span class="custom-option" data-value="content">Content Creation</span>
+                        <span class="custom-option" data-value="ecommerce">eCommerce Growth</span>
+                          <span class="custom-option" data-value="both">Both / not sure yet</span>
+                     </div>
+                </div>
+<input type="hidden" name="service" id="serviceInput">
               <div class="field-full floating-field">
                 <label for="home-details">Further details</label>
                 <textarea id="home-details" name="further_details" placeholder="A few lines about what you’re building, what you need, or what feels stuck."></textarea>
