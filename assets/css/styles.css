@@ -235,18 +235,28 @@ main { overflow: clip; }
 .brand {
   position: relative;
   z-index: 2;
-  display: inline-grid;
-  gap: 0;
-  min-width: 160px;
-  font-weight: 800;
-  line-height: 0.92;
-  letter-spacing: -0.05em;
-  color: var(--charcoal);
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: min(260px, 32vw);
+  min-width: 190px;
   transition: transform 220ms ease;
 }
 
-.brand span:last-child { padding-left: 14px; }
-.brand:hover { transform: scale(1.045); }
+.brand-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.brand-logo-icon {
+  display: none;
+  width: 46px;
+  height: 46px;
+}
+
+.brand:hover { transform: scale(1.035); }
 
 .nav-wrap {
   position: relative;
@@ -1537,4 +1547,15 @@ input:focus, textarea:focus, select:focus { transform: translateY(-1px); }
   outline: none;
   background: rgba(255, 189, 89, 0.18);
   color: var(--charcoal);
+}
+
+
+@media (max-width: 720px) {
+  .brand {
+    width: 46px;
+    min-width: 46px;
+  }
+
+  .brand-logo-full { display: none; }
+  .brand-logo-icon { display: block; }
 }
