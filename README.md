@@ -5,7 +5,7 @@ Static multi-page site for GitHub Pages.
 ## Files included
 - `index.html`
 - `services.html`
-- `performance-marketing.html`
+- `content-creation.html`
 - `ecommerce-growth.html`
 - `about.html`
 - `contact.html`
