@@ -1039,27 +1039,32 @@ textarea {
     background: rgba(255, 189, 89, 0.14);
   }
 
-  .nav-item.has-dropdown:hover .nav-dropdown,
-  .nav-item.has-dropdown:focus-within .nav-dropdown,
-  .nav-item.has-dropdown.is-open .nav-dropdown {
+  /* Mobile Services dropdown: hidden completely until Services is clicked.
+     Opacity/visibility alone leaves the dropdown in the layout and creates a gap. */
+  .nav-dropdown {
+    display: none !important;
     position: static;
-    margin-top: 8px;
+    min-width: unset;
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none;
     opacity: 1;
     visibility: visible;
     transform: none;
-    box-shadow: none;
   }
 
-  .nav-dropdown {
-    position: static;
-    min-width: unset;
-    margin-top: 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: none;
+  .nav-item.has-dropdown:hover .nav-dropdown,
+  .nav-item.has-dropdown:focus-within .nav-dropdown {
+    display: none !important;
+  }
+
+  .nav-item.has-dropdown.is-open .nav-dropdown {
+    display: grid !important;
+    gap: 8px;
+    margin-top: 8px;
     padding: 8px 8px 8px 16px;
-    background: transparent !important;
-    border: 0 !important;
   }
 
   .nav-cta { display: none; }
@@ -1530,4 +1535,50 @@ input:focus, textarea:focus, select:focus { transform: translateY(-1px); }
   outline: none;
   background: rgba(255, 189, 89, 0.18);
   color: var(--charcoal);
+}
+
+
+/* FINAL mobile hamburger services fix
+   Keep the Services dropdown completely out of the layout on mobile until clicked. */
+.nav-dropdown[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .site-nav .nav-item.has-dropdown:not(.is-open) > .nav-dropdown,
+  .site-nav .nav-item.has-dropdown:not(.is-open) > .nav-dropdown[hidden] {
+    display: none !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .site-nav .nav-item.has-dropdown.is-open > .nav-dropdown:not([hidden]) {
+    display: grid !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    position: static !important;
+    margin-top: 8px !important;
+    padding: 8px 8px 8px 16px !important;
+    gap: 8px !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+@media (min-width: 901px) {
+  .nav-dropdown[hidden] {
+    display: grid !important;
+  }
 }
