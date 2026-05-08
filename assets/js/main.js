@@ -65,18 +65,17 @@
         if (window.innerWidth > 900) return;
         const item = link.closest('.nav-item');
         if (!item) return;
-        const isOpen = item.classList.contains('is-open');
-        const href = link.getAttribute('href');
 
-        if (!isOpen) {
-          event.preventDefault();
-          header.querySelectorAll('.nav-item.has-dropdown').forEach((other) => {
-            if (other !== item) other.classList.remove('is-open');
-          });
-          item.classList.add('is-open');
-        } else if (!href || href === '#') {
-          event.preventDefault();
-        }
+        // On mobile, Services acts as a dropdown toggle.
+        // This keeps the hamburger menu open and lets the submenu animate in/out.
+        event.preventDefault();
+        const isOpen = item.classList.contains('is-open');
+
+        header.querySelectorAll('.nav-item.has-dropdown').forEach((other) => {
+          if (other !== item) other.classList.remove('is-open');
+        });
+
+        item.classList.toggle('is-open', !isOpen);
       });
     });
 
