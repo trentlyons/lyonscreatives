@@ -1,4 +1,4 @@
-# Lyons Creative website
+# Lyons Growth Studio website
 
 Static multi-page site for GitHub Pages.
 
