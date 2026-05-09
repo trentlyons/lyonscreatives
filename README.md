@@ -32,7 +32,7 @@ The site uses plain HTML `POST` forms, which is the simplest option for GitHub P
 
 ## Domain / sitemap note
 The sitemap currently uses:
-`https://trentlyons.github.io/lyonscreatives/`
+`https://lyonsgrowthstudio.co.uk/`
 
 If you switch to a custom domain later, update:
 - `sitemap.xml`
