@@ -1559,3 +1559,10 @@ input:focus, textarea:focus, select:focus { transform: translateY(-1px); }
   .brand-logo-full { display: none; }
   .brand-logo-icon { display: block; }
 }
+
+.booking-card iframe {
+  display: block;
+  margin-top: 18px;
+  border-radius: 18px;
+  background: #fff;
+}

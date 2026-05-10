@@ -9,7 +9,6 @@ Static multi-page site for GitHub Pages.
 - `ecommerce-growth.html`
 - `about.html`
 - `contact.html`
-- `blog.html` (built, but intentionally hidden from the main nav for now)
 - `assets/css/styles.css`
 - `assets/js/main.js`
 - `assets/img/*.svg`
@@ -43,7 +42,6 @@ All imagery in `assets/img` is locally generated placeholder artwork made for th
 
 ## Optional next refinements
 - replace placeholder email address
-- replace placeholder blog content
 - connect real social profiles
 - add analytics / Search Console
 - swap in real photography or brand visuals
