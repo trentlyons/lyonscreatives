@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /blog.html
+Disallow: /content-creation.html
 
 Sitemap: https://lyonsgrowthstudio.co.uk/sitemap.xml
